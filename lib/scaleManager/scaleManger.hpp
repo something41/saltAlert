@@ -1,6 +1,6 @@
 #include "SparkFun_Qwiic_Scale_NAU7802_Arduino_Library.h"
 
-typedef struct 
+typedef struct
 {
     NAU7802 driver;
     float bOffset;
@@ -22,6 +22,10 @@ uint32_t scaleManager__getRawValue(scaleManager_t * scaleManager);
 bool scaleManger__tare(scaleManager_t * scaleManager);
 
 int32_t scaleManager__getFilteredValue(scaleManager_t * scaleManager);
+
+void scaleManager__reset(scaleManager_t * scaleManager);
+
+float scaleManger__sampleNReadings(scaleManager_t * scaleManager, uint32_t numReadings);
 
 
 #define SCALE_MANAGER_INIT(_bOffset, _scaler, _rollingAverageFilterAmount) \
